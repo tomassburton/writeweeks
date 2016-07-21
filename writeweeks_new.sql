@@ -4,7 +4,7 @@ CREATE OR REPLACE FUNCTION casdev01.writeweeks(
 )
 RETURNS text AS $BODY$
 
-var returnValue = "Success";
+var returnValue = "Successfully generated";
 var startDate = new Date(startyear + '-1-1');
 var endDate = new Date(endyear + '-12-31');
 var startOfWeek = new Date();
@@ -70,6 +70,26 @@ for (var year = startyear; year <= endyear; year++) {
 				
 				endOfWeek = new Date(startOfWeek.getTime());
 				endOfWeek.setDate(new Date(endOfWeek).getDate() + 6);
+
+				/*var dayStr = day;
+				var dayString = "";
+				switch (dayStr) {
+					case 1: dayString = "1 (Sunday)";
+							break;
+					case 2: dayString = "2 (Monday)";
+							break;
+					case 3: dayString = "3 (Tuesday)";
+							break;
+					case 4: dayString = "4 (Wednesday)";
+							break;
+					case 5: dayString = "5 (Thursday)";
+							break;
+					case 6: dayString = "6 (Friday)";
+							break;
+					case 7: dayString = "7 (Saturday)";
+							break;
+				}
+				return dayString; */
 			
 				var insertString = "INSERT INTO casdev01.period (datefrom, datethru, periodtype, ";
 					insertString += "periodidentifier, firstdayofweek, firstweekofyear, periodnumber, weeks, calendaryear)";
