@@ -76,7 +76,7 @@ for (var year = startyear; year <= endyear; year++) {
 					insertString += "periodidentifier, firstdayofweek, firstweekofyear, periodnumber, weeks, calendaryear)";
 					insertString += "VALUES (\'" + formatdate(startOfWeek) + "\', \'" + formatdate(endOfWeek) + "\',\'Week\'";
 					insertString += ",\'Week" + weekNumber + "/" + year + "\'";
-					insertString += "," + getDayName(day) + "," + firstWeek + "," + weekNumber + ", 1, " + year + ")";
+					insertString += ",'" + getDayName(day) + "'," + firstWeek + "," + weekNumber + ", 1, " + year + ")";
 				plv8.execute(insertString);
 			}
 		}
