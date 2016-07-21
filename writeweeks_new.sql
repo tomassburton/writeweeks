@@ -76,7 +76,7 @@ for (var year = startyear; year <= endyear; year++) {
 					insertString += "periodidentifier, firstdayofweek, firstweekofyear, periodnumber, weeks, calendaryear)";
 					insertString += "VALUES (\'" + formatdate(startOfWeek) + "\', \'" + formatdate(endOfWeek) + "\',\'Week\'";
 					insertString += ",\'Week" + weekNumber + "/" + year + "\'";
-					insertString += "," + day + "," + firstWeek + "," + weekNumber + ", 1, " + year + ")";
+					insertString += "," + dayNameString + "," + firstWeek + "," + weekNumber + ", 1, " + year + ")";
 				plv8.execute(insertString);
 			}
 		}
@@ -99,29 +99,29 @@ function getweekNumber (date, firstWeek) {
 
 }
 
-/*function getDayName (day, dayName) {
+function getDayName (day, dayName) {
 	var day = 1;
 	var dayNameString = '';
 
 	if (day == 1) {
-		dayName = [0];
+		dayNameString = dayName[0];
 	} else if (day == 2) {
-		dayName = [1];
+		dayNameString = dayName[1];
 	} else if (day == 3) {
-		dayName = [2];
+		dayNameString = dayName[2];
 	} else if (day == 4) {
-		dayName = [3];
+		dayNameString = dayName[3];
 	} else if (day == 5) {
-		dayName = [4];
+		dayNameString = dayName[4];
 	} else if (day == 6) {
-		dayName = [5];
+		dayNameString = dayName[5];
 	} else if (day == 7) {
-		dayName = [6];
+		dayNameString = dayName[6];
 	}
-	var dayNameString = dayName;
+
 	return dayNameString;
 
-}*/
+}
 
 function formatdate(d) {
 
