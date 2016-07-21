@@ -12,6 +12,7 @@ var endOfWeek = new Date();
 var weekNumber = 0;
 var firstWeekOfYear = [1, 2, 3]; /* conditions, that defines first week of year - this means 1=January 1st; 2=full week; 3=first four days, that are like a full week */
 var firstDayOfWeek = [1, 2, 3, 4, 5, 6, 7]; /* all possible combinations for first day of the week */
+var dayName = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 /* definying variables for loop, that generates years and weeks */
 var weekNumber = 0;
@@ -71,26 +72,6 @@ for (var year = startyear; year <= endyear; year++) {
 				endOfWeek = new Date(startOfWeek.getTime());
 				endOfWeek.setDate(new Date(endOfWeek).getDate() + 6);
 
-				/*var dayStr = day;
-				var dayString = "";
-				switch (dayStr) {
-					case 1: dayString = "1 (Sunday)";
-							break;
-					case 2: dayString = "2 (Monday)";
-							break;
-					case 3: dayString = "3 (Tuesday)";
-							break;
-					case 4: dayString = "4 (Wednesday)";
-							break;
-					case 5: dayString = "5 (Thursday)";
-							break;
-					case 6: dayString = "6 (Friday)";
-							break;
-					case 7: dayString = "7 (Saturday)";
-							break;
-				}
-				return dayString; */
-			
 				var insertString = "INSERT INTO casdev01.period (datefrom, datethru, periodtype, ";
 					insertString += "periodidentifier, firstdayofweek, firstweekofyear, periodnumber, weeks, calendaryear)";
 					insertString += "VALUES (\'" + formatdate(startOfWeek) + "\', \'" + formatdate(endOfWeek) + "\',\'Week\'";
@@ -117,6 +98,30 @@ function getweekNumber (date, firstWeek) {
 	return weekNumber;
 
 }
+
+/*function getDayName (day, dayName) {
+	var day = 1;
+	var dayNameString = '';
+
+	if (day == 1) {
+		dayName = [0];
+	} else if (day == 2) {
+		dayName = [1];
+	} else if (day == 3) {
+		dayName = [2];
+	} else if (day == 4) {
+		dayName = [3];
+	} else if (day == 5) {
+		dayName = [4];
+	} else if (day == 6) {
+		dayName = [5];
+	} else if (day == 7) {
+		dayName = [6];
+	}
+	var dayNameString = dayName;
+	return dayNameString;
+
+}*/
 
 function formatdate(d) {
 
